@@ -2,7 +2,7 @@ pipeline {
 
   environment {
 
-    registry = "sankethshinde/devops24thaprilproject"
+    registry = "sachinpatil2488/docker-jenkins-demo"
 
     registryCredential = 'docker-creds'
 
@@ -18,7 +18,7 @@ pipeline {
 
       steps {
 
-        git 'https://github.com/shindesanket/Docker-Jenkins-Demo'
+        git 'https://github.com/sachinpatil2488/Docker-Jenkins-Demo'
 
       }
 
@@ -55,7 +55,8 @@ pipeline {
       }
 
     }
-	stage('Remove Existing Container') {
+	
+    stage('Remove Existing Container') {
 
       steps{
 	  script {
@@ -78,18 +79,17 @@ pipeline {
 
     }
     
-    	stage('Run Docker Image in Lab') {
+    stage('Run Docker Image in Lab') {
 
       steps{
 
         script {
-
-		        sh "docker run -d -p 8000:8000 ${dockerImage.imageName()}"
+            sh "docker run -d -p 8000:8000 ${dockerImage.imageName()}"
         }
 
       }
 
-	}
+    }
 
   }
 
