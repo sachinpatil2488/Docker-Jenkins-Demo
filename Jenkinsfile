@@ -30,7 +30,7 @@ pipeline {
 
         script {
 
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build registry + "ver-:$BUILD_NUMBER"
 
         }
 
@@ -40,7 +40,7 @@ pipeline {
 
     stage('Deploy Image') {
 
-      steps{
+      steps {
 
         script {
 
@@ -84,7 +84,7 @@ pipeline {
       steps{
 
         script {
-            sh "docker run -d -p 8000:8000 ${dockerImage.imageName()}"
+            sh "docker run -d -p 8100:8000 ${dockerImage.imageName()}"
         }
 
       }
