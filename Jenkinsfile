@@ -30,7 +30,7 @@ pipeline {
 
         script {
 
-          dockerImage = docker.build registry + "ver-:$BUILD_NUMBER"
+          dockerImage = docker.build registry + "ver-" + ":$BUILD_NUMBER"
 
         }
 
